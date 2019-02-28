@@ -1,6 +1,6 @@
 # Small Ansible docker based on Alpine Linux [![Build Status](https://travis-ci.org/ogarcia/docker-ansible.svg?branch=master)](https://travis-ci.org/ogarcia/docker-ansible)
 
-(c) 2017 Óscar García Amor
+(c) 2017-2019 Óscar García Amor
 
 Redistribution, modifications and pull requests are welcomed under the terms
 of GPLv3 license.
