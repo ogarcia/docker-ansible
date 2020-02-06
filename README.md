@@ -1,6 +1,6 @@
-# Small Ansible docker based on Alpine Linux [![Build Status](https://travis-ci.org/ogarcia/docker-ansible.svg?branch=master)](https://travis-ci.org/ogarcia/docker-ansible)
+# Small Ansible docker based on Alpine Linux [![CircleCI](https://circleci.com/gh/ogarcia/docker-ansible.svg?style=svg)](https://circleci.com/gh/ogarcia/docker-ansible)
 
-(c) 2017-2019 Óscar García Amor
+(c) 2017-2020 Óscar García Amor
 
 Redistribution, modifications and pull requests are welcomed under the terms
 of GPLv3 license.
@@ -13,11 +13,12 @@ like zero downtime rolling updates with load balancers.
 This docker packages **Ansible** under [Alpine Linux][2], a lightweight
 Linux distribution.
 
-Visit [Docker Hub][3] to see all available tags.
+Visit [Docker Hub][3] or [Quay][4] to see all available tags.
 
 [1]: https://ansible.com/
 [2]: https://alpinelinux.org/
 [3]: https://hub.docker.com/r/connectical/ansible/
+[4]: https://quay.io/repository/connectical/ansible/
 
 ## Run
 

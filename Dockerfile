@@ -1,4 +1,6 @@
-FROM alpine:3.9
+ARG ALPINE_VERSION
+
+FROM alpine:${ALPINE_VERSION}
 
 RUN apk -U --no-progress upgrade \
  && apk --no-progress add ansible git openssh-client
