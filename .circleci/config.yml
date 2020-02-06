@@ -68,6 +68,18 @@ jobs:
 workflows:
   version: 2
   build-deploy:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+      - publish-dockerhub:
+          requires:
+            - test
+      - publish-quay:
+          requires:
+            - test
+  nightly-build-deploy:
     triggers:
       - schedule:
           cron: "0 0 * * *"
