@@ -1,4 +1,5 @@
-ALPINE_VERSION := 3.11
+ALPINE_VERSION := 3.12
+GITHUB_ORGANIZATION := ogarcia
 DOCKER_ORGANIZATION := connectical
 DOCKER_IMAGE := ansible
 DOCKER_IMAGE_FILENAME ?= $(DOCKER_ORGANIZATION)_$(DOCKER_IMAGE).tar
@@ -19,6 +20,14 @@ ifndef QUAY_USERNAME
 endif
 ifndef QUAY_PASSWORD
 	$(error QUAY_PASSWORD is undefined)
+endif
+
+check-github-registry-env:
+ifndef GITHUB_REGISTRY_USERNAME
+	$(error GITHUB_REGISTRY_USERNAME is undefined)
+endif
+ifndef GITHUB_REGISTRY_PASSWORD
+	$(error GITHUB_REGISTRY_PASSWORD is undefined)
 endif
 
 docker-build:
@@ -54,6 +63,15 @@ quay-push: check-quay-env
 ifdef CIRCLE_TAG
 	docker tag $(DOCKER_ORGANIZATION)/$(DOCKER_IMAGE):latest quay.io/$(DOCKER_ORGANIZATION)/$(DOCKER_IMAGE):${CIRCLE_TAG}
 	docker push quay.io/$(DOCKER_ORGANIZATION)/$(DOCKER_IMAGE):${CIRCLE_TAG}
+endif
+
+github-registry-push: check-github-registry-env
+	echo "${GITHUB_REGISTRY_PASSWORD}" | docker login -u "${GITHUB_REGISTRY_USERNAME}" --password-stdin ghcr.io
+	docker tag $(DOCKER_ORGANIZATION)/$(DOCKER_IMAGE):latest ghcr.io/$(GITHUB_ORGANIZATION)/$(DOCKER_IMAGE):latest
+	docker push ghcr.io/$(GITHUB_ORGANIZATION)/$(DOCKER_IMAGE):latest
+ifdef CIRCLE_TAG
+	docker tag $(DOCKER_ORGANIZATION)/$(DOCKER_IMAGE):latest ghcr.io/$(GITHUB_ORGANIZATION)/$(DOCKER_IMAGE):${CIRCLE_TAG}
+	docker push ghcr.io/$(GITHUB_ORGANIZATION)/$(DOCKER_IMAGE):${CIRCLE_TAG}
 endif
 
 .PHONY: all check-dockerhub-env check-quay-env docker-build docker-test docker-save dockerhub-push quay-push

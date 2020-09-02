@@ -19,6 +19,7 @@ Visit [Docker Hub][3] or [Quay][4] to see all available tags.
 [2]: https://alpinelinux.org/
 [3]: https://hub.docker.com/r/connectical/ansible/
 [4]: https://quay.io/repository/connectical/ansible/
+[5]: https://ghcr.io/ogarcia/ansible/
 
 ## Run
 
