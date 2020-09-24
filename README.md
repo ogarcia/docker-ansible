@@ -13,13 +13,13 @@ like zero downtime rolling updates with load balancers.
 This docker packages **Ansible** under [Alpine Linux][2], a lightweight
 Linux distribution.
 
-Visit [Docker Hub][3] or [Quay][4] to see all available tags.
+Visit [Docker Hub][3], [Quay][4] or [GitHub][5] to see all available tags.
 
 [1]: https://ansible.com/
 [2]: https://alpinelinux.org/
 [3]: https://hub.docker.com/r/connectical/ansible/
 [4]: https://quay.io/repository/connectical/ansible/
-[5]: https://ghcr.io/ogarcia/ansible/
+[5]: https://github.com/orgs/connectical/packages/container/package/ansible
 
 ## Run
 
