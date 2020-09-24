@@ -76,7 +76,7 @@ jobs:
           name: Load archived Docker image
           command: DOCKER_IMAGE_FILENAME=/tmp/workspace/image.tar make docker-load
       - run:
-          name: Push Docker image to Quay.io
+          name: Push Docker image to ghcr.io
           command: make github-registry-push
 
 workflows:
