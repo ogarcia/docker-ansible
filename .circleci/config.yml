@@ -97,26 +97,3 @@ workflows:
           context: github-registry
           requires:
             - test
-  nightly-build-deploy:
-    triggers:
-      - schedule:
-          cron: "0 0 * * 0"
-          filters:
-            branches:
-              only:
-                - master
-    jobs:
-      - build
-      - test:
-          requires:
-            - build
-      - publish-dockerhub:
-          requires:
-            - test
-      - publish-quay:
-          requires:
-            - test
-      - publish-github-registry:
-          context: github-registry
-          requires:
-            - test
