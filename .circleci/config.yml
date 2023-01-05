@@ -88,9 +88,11 @@ workflows:
           requires:
             - build
       - publish-dockerhub:
+          context: dockerhub
           requires:
             - test
       - publish-quay:
+          context: quay-nn
           requires:
             - test
       - publish-github-registry:
