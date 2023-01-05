@@ -1,6 +1,6 @@
 # Small Ansible docker based on Alpine Linux [![CircleCI](https://circleci.com/gh/ogarcia/docker-ansible.svg?style=svg)](https://circleci.com/gh/ogarcia/docker-ansible)
 
-(c) 2017-2022 Óscar García Amor
+(c) 2017-2023 Óscar García Amor
 
 Redistribution, modifications and pull requests are welcomed under the terms
 of GPLv3 license.
